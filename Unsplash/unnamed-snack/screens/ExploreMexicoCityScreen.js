@@ -4,6 +4,13 @@ import { withTheme, ScreenContainer, Container } from '@draftbit/ui';
 
 class Root extends Component {
 
+  static navigationOptions = {
+    title: 'Mexico City',
+    headerStyle: {
+      backgroundColor: 'transparent',
+      zIndex: 100,
+      },
+  };
   componentDidMount() {
     StatusBar.setBarStyle("dark-content");
   }
