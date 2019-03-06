@@ -25,7 +25,8 @@ const AppNavigator = createStackNavigator(
     Barcelona: ExploreBarcelonaScreen,
     Profile: ProfilePagePhotosViewScreen,
     Collections: ProfilePageCollectionsViewScreen,
-    Likes: ProfilePageLikesViewScreen
+    Likes: ProfilePageLikesViewScreen,
+    Detail: PhotoDetailPageScreen
   },
   {
     initialRouteName: "Home"

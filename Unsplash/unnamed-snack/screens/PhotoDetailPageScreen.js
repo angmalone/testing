@@ -1,9 +1,30 @@
 import React, { Component } from 'react';
-import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList } from 'react-native';
+import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton } from '@draftbit/ui';
 import Images from "../config/Images.js";
 
 class Root extends Component {
+  
+  static navigationOptions = {
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: "rgba(20, 21, 33, 1)",
+      borderBottomColor: "rgba(20, 21, 33, 1)",
+      Color: 'white',
+      zIndex: 100,
+      tintColor: 'white'
+      },
+      headerRight: (
+        <IconButton
+        style={{
+          marginTop: 0,
+          marginRight: 10
+        }}
+          icon="open-in-browser"
+          size={24}
+          color='white'
+      />)
+  };
 
   componentDidMount() {
     StatusBar.setBarStyle("light-content");
@@ -21,61 +42,12 @@ class Root extends Component {
           alignContent: 'space-between',
         }}
       >
-        <Container
-          style={{
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexDirection: 'row',
-            paddingRight: 0,
-            marginHorizontal: 0,
-            marginBottom: 0,
-            bottom: 50,
-          }}
-            elevation={2}
-            useThemeGutterPadding={false}
-        >
-          <Container
-            style={{
-              width: 50,
-              alignItems: 'center',
-              flexDirection: 'row',
-            }}
-              elevation={2}
-              useThemeGutterPadding={false}
-          >
-            <IconButton
-              style={{
-                marginTop: 0,
-              }}
-                icon="chevron-left"
-                size={24}
-                color={theme.colors.strong}
-            />
-            <Text
-              style={{
-                color: theme.colors.strong, 
-                    
-              }}
-            >
-            Back
-            </Text>
-          </Container>
-          <IconButton
-            style={{
-              paddingHorizontal: 0,
-              marginTop: 0,
-              marginRight: 0,
-            }}
-              icon="open-in-browser"
-              size={24}
-              color={theme.colors.strong}
-          />
-        </Container>
+        
         <Image
           style={{
             width: 450,
             height: 550,
-            marginTop: 0,
+            marginTop: -50
           }}
             source={Images.ZacharyXu1410625Unsplash}
             resizeMode="cover"

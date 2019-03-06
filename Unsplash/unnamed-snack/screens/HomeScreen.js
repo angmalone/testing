@@ -46,7 +46,7 @@ class Root extends Component {
                   icon="account-circle"
                   size={32}
                   color={theme.colors.surface}
-                  onPress={() => this.props.navigation.navigate('Mexico')}
+                  
               />
               <IconButton
                 style={{
@@ -55,6 +55,7 @@ class Root extends Component {
                   icon="account-circle"
                   size={32}
                   color={theme.colors.surface}
+                  onPress={() => this.props.navigation.navigate('Profile')}
               />
             </View>
             <View
@@ -196,8 +197,7 @@ class Root extends Component {
             <Text
               style={[
                 theme.typography.headline6, {
-                color: theme.colors.strong, 
-                    
+                color: theme.colors.strong,  
                 marginVertical: 20,
                 marginLeft: 20,
               }]}
@@ -226,6 +226,7 @@ class Root extends Component {
               Jean Philippe Delberg
               </Text>
             </Container>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Detail')}>
             <Container
               style={{
                 width: '100%',
@@ -247,6 +248,7 @@ class Root extends Component {
               Zachary Xu 
               </Text>
             </Container>
+            </TouchableHighlight>
             <Container
               style={{
                 width: '100%',
