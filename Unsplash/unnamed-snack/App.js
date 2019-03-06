@@ -10,15 +10,16 @@ import HomeScreen from "./screens/HomeScreen";
 import ExploreMexicoCityScreen from "./screens/ExploreMexicoCityScreen"
 import ExploreBeachesScreen from "./screens/ExploreBeachesScreen";
 import ExploreBarcelonaScreen from "./screens/ExploreBarcelonaScreen";
-import ButtonTest from "./screens/ButtonTest";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 import ProfilePagePhotosViewScreen from './screens/ProfilePagePhotosViewScreen';
 import ProfilePageLikesViewScreen from "./screens/ProfilePageLikesViewScreen";
 import ProfilePageCollectionsViewScreen from "./screens/ProfilePageCollectionsViewScreen"
+import ProfileTest from "./screens/ProfileTest";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: ButtonTest,
+    Home: HomeScreen,
+    ProfileTest: ProfileTest, 
     Mexico: ExploreMexicoCityScreen,
     Beaches: ExploreBeachesScreen,
     Barcelona: ExploreBarcelonaScreen,
@@ -34,6 +35,8 @@ const AppNavigator = createStackNavigator(
 const AppContainer = createAppContainer(AppNavigator);
 
 export default class App extends React.PureComponent {
+
+  
   state = {
     isReady: false
   }

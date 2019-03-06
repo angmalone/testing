@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList } from 'react-native';
+import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton, FieldSearchBarFull, FAB } from '@draftbit/ui';
 import Images from "../config/Images.js";
 
@@ -113,7 +113,7 @@ class Root extends Component {
               padding: 20,
             }}
               horizontal={true}
-          >
+          ><TouchableHighlight onPress={() => this.props.navigation.navigate('Mexico')}>
             <Container
               style={{
                 width: 300,
@@ -125,7 +125,7 @@ class Root extends Component {
                 elevation={2}
                 backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/d3f2324e-83bd-484a-a2af-22afa14ec873"
                 useThemeGutterPadding={true}
-                onPress={() => this.props.navigation.navigate('Mexico')}
+                
                 
             >
               <Text
@@ -139,6 +139,8 @@ class Root extends Component {
               Mexico City
               </Text>
             </Container>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Beaches')}>
             <Container
               style={{
                 width: 300,
@@ -161,6 +163,8 @@ class Root extends Component {
               Beaches
               </Text>
             </Container>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Barcelona')}>
             <Container
               style={{
                 width: 300,
@@ -183,34 +187,7 @@ class Root extends Component {
               Barcelona
               </Text>
             </Container>
-            <Image
-              style={{
-                width: 300,
-                height: 200,
-                borderRadius: theme.borderRadius.global,
-                overflow: 'hidden',
-              }}
-                source={Images.Photo15015323491c215c24f718}
-                onPress={() => this.props.navigation.navigate('Mexico')}
-            />
-            <Image
-              style={{
-                width: 300,
-                height: 200,
-                marginLeft: 20,
-              }}
-                source={Images.Photo15464384861f90eb9213b3}
-            />
-            <Image
-              style={{
-                width: 300,
-                height: 200,
-                marginLeft: 20,
-                borderRadius: theme.borderRadius.global,
-                overflow: 'hidden',
-              }}
-                source={Images.Photo1500213408922Ec89a234e034}
-            />
+            </TouchableHighlight>
           </ScrollView>
           <Container
               elevation={2}
