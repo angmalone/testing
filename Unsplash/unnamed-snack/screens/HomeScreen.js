@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton, FieldSearchBarFull, FAB } from '@draftbit/ui';
+import ReactModal from 'react-modal';
 import Images from "../config/Images.js";
 
 class Root extends Component {
@@ -100,7 +101,7 @@ class Root extends Component {
                 marginBottom: 10,
               }}
             >
-            zplits
+            Photo by zplits
             </Text>
           </Container>
           <Container

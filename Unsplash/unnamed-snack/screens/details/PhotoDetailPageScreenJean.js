@@ -1,53 +1,41 @@
-import React, { Component } from "react";
-import {
-  StatusBar,
-  StyleSheet,
-  View,
-  ScrollView,
-  Image,
-  Text,
-  FlatList
-} from "react-native";
-import {
-  withTheme,
-  ScreenContainer,
-  Container,
-  IconButton
-} from "@draftbit/ui";
-import Images from "../config/Images.js";
+import React, { Component } from 'react';
+import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList, Share } from 'react-native';
+import { withTheme, ScreenContainer, Container, IconButton } from '@draftbit/ui';
+import Images from "../../config/Images.js";
 
 class Root extends Component {
-  onClick() {
-    Share.share({
-      message: 'View this photo:',
-      url: 'www.unsplash.com'
-    })
-  }
 
-  static navigationOptions = ({ navigation }) => {
-    return {
-      headerTintColor: 'white',
-      headerStyle: {
-      backgroundColor: "rgba(20, 21, 33, 1)",
-      borderBottomColor: "rgba(20, 21, 33, 1)",
-      Color: 'white',
-      zIndex: 100,
-      tintColor: 'white'
-      },
-      headerRight: (
-        <IconButton
-        style={{
-          marginTop: 0,
-          marginRight: 10
+    onClick() {
+        Share.share({
+          message: 'View this photo:',
+          url: 'www.unsplash.com'
+        })
+      }
+    
+      static navigationOptions = ({ navigation }) => {
+        return {
+          headerTintColor: 'white',
+        headerStyle: {
+          backgroundColor: "rgba(20, 21, 33, 1)",
+          borderBottomColor: "rgba(20, 21, 33, 1)",
+          Color: 'white',
+          zIndex: 100,
+          tintColor: 'white'
+          },
+          headerRight: (
+            <IconButton
+            style={{
+              marginTop: 0,
+              marginRight: 10
+            }}
+              icon="open-in-browser"
+              title="hi"
+              size={24}
+              color='white'
+              onPress={navigation.getParam('share')}
+            />
+          ),
         }}
-          icon="open-in-browser"
-          title="hi"
-          size={24}
-          color='white'
-          onPress={navigation.getParam('share')}
-        />
-      ),
-    }}
 
   componentDidMount() {
     StatusBar.setBarStyle("light-content");
@@ -60,6 +48,7 @@ class Root extends Component {
       url: 'http://www.unsplash.com'
     })
   };
+
   render() {
     const { theme } = this.props;
     return (
@@ -72,14 +61,13 @@ class Root extends Component {
           alignContent: "space-between"
         }}
       >
-        
         <Image
           style={{
             width: 450,
             height: 550,
-            marginTop: 0
+            marginTop: -50
           }}
-          source={Images.BraydenLaw1407607Unsplash}
+          source={Images.JeanPhilippeDelberghe1409304Unsplash}
           resizeMode="cover"
         />
         <Container
@@ -99,7 +87,7 @@ class Root extends Component {
               color: theme.colors.strong
             }}
           >
-            Brayden Law
+            Jean Philippe Delberg
           </Text>
           <IconButton
             style={{

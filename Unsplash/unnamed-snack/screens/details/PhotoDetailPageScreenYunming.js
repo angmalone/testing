@@ -1,20 +1,7 @@
-import React, { Component } from "react";
-import {
-  StatusBar,
-  StyleSheet,
-  View,
-  ScrollView,
-  Image,
-  Text,
-  FlatList
-} from "react-native";
-import {
-  withTheme,
-  ScreenContainer,
-  Container,
-  IconButton
-} from "@draftbit/ui";
-import Images from "../config/Images.js";
+import React, { Component } from 'react';
+import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList, Share } from 'react-native';
+import { withTheme, ScreenContainer, Container, IconButton } from '@draftbit/ui';
+import Images from "../../config/Images.js";
 
 class Root extends Component {
   onClick() {
