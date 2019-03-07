@@ -123,9 +123,7 @@ class Root extends Component {
             </Button>
           </Container>
           <FlatList
-            style={{
-              alignItems: 'center',
-            }}
+            contentContainerStyle={styles.childLayout}
                data={[{"image":"https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/4f23192d-d5c5-421c-ab67-c84a3f90f64a","title":"Kyoto","elevation":2,"numColumns":3,"aspectRatio":1.5,"description":"","textCentered":true}]}
                renderItem={({item}) => <CardInline {...item} style={{ marginBottom: theme.spacing.small }} /> }
                keyExtractor={item => item.id}
@@ -136,5 +134,11 @@ class Root extends Component {
     );
   }
 };
+
+const styles = StyleSheet.create({
+  childLayout: {
+    alignItems: 'center'
+  }
+});
 
 export default withTheme(Root)

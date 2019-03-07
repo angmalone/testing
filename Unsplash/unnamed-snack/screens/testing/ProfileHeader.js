@@ -18,18 +18,19 @@ type State = NavigationState<{
   title: string,
 }>;
 
+
 class Root extends Component {
 
   static navigationOptions = {
-    header: null,
-    headerTintColor: 'white',
+    headerTransparent: 'true',
+    headerTintColor: 'rgba(165, 173, 183, 1)',
     headerStyle: {
-      Color: 'white',
-      zIndex: 100,
-      tintColor: 'white'
+      height: 50,
+      borderBottomWidth: 0,
+      marginLeft: 20
       },
   };
-  static title = 'Top tab bar with icons';
+  
   static backgroundColor = '#e91e63';
   static appbarElevation = 0;
 
@@ -61,7 +62,7 @@ class Root extends Component {
   _renderScene = SceneMap({
     photos: Photos,
     likes: Likes,
-    collectionse: Collections,
+    collections: Collections,
   });
 
   componentDidMount() {
@@ -157,32 +158,7 @@ class Root extends Component {
               </Text>
             </Container>
           </Container>
-          <Container
-            style={{
-              justifyContent: 'space-evenly',
-              flexDirection: 'row',
-            }}
-              elevation={2}
-              useThemeGutterPadding={true}
-          >
-            <Button
-                type="text"
-            >
-              Photos
-            </Button>
-            <Button
-                type="text"
-                onPress={() => this.props.navigation.navigate('Likes')}
-            >
-              Likes
-            </Button>
-            <Button
-                type="text"
-                onPress={() => this.props.navigation.navigate('Collections')}
-            >
-              Collections
-            </Button>
-          </Container>
+         
           <TabView
         lazy
         style={this.props.style}

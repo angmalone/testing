@@ -1,12 +1,22 @@
 import React, { Component } from 'react';
-import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList } from 'react-native';
+import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList, Share } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton } from '@draftbit/ui';
 import Images from "../config/Images.js";
 
 class Root extends Component {
+
+  onClick() {
+    Share.share({
+      message: 'View this photo:',
+      url: 'www.unsplash.com'
+    })
+  }
   
-  static navigationOptions = {
-    headerTintColor: 'white',
+
+
+  static navigationOptions = ({ navigation }) => {
+    return {
+      headerTintColor: 'white',
     headerStyle: {
       backgroundColor: "rgba(20, 21, 33, 1)",
       borderBottomColor: "rgba(20, 21, 33, 1)",
@@ -21,14 +31,25 @@ class Root extends Component {
           marginRight: 10
         }}
           icon="open-in-browser"
+          title="hi"
           size={24}
           color='white'
-      />)
-  };
+          onPress={navigation.getParam('share')}
+        />
+      ),
+    }}
 
   componentDidMount() {
     StatusBar.setBarStyle("light-content");
+    this.props.navigation.setParams({ share: this._sharePhoto });
   }
+
+  _sharePhoto = () => {
+    Share.share({
+      message: 'View this photo:',
+      url: 'http://www.unsplash.com'
+    })
+  };
 
   render() {
     const { theme } = this.props
@@ -81,6 +102,7 @@ class Root extends Component {
               color={theme.colors.strong}
           />
         </Container>
+        
       </ScreenContainer>
     );
   }

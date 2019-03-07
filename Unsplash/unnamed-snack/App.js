@@ -11,23 +11,21 @@ import ExploreMexicoCityScreen from "./screens/ExploreMexicoCityScreen"
 import ExploreBeachesScreen from "./screens/ExploreBeachesScreen";
 import ExploreBarcelonaScreen from "./screens/ExploreBarcelonaScreen";
 import { createStackNavigator, createAppContainer } from "react-navigation";
-import ProfilePagePhotosViewScreen from './screens/ProfilePagePhotosViewScreen';
-import ProfilePageLikesViewScreen from "./screens/ProfilePageLikesViewScreen";
-import ProfilePageCollectionsViewScreen from "./screens/ProfilePageCollectionsViewScreen"
-import ProfileTest from "./screens/ProfileTest";
+//import ProfilePagePhotosViewScreen from './screens/ProfilePagePhotosViewScreen';
+//import ProfilePageLikesViewScreen from "./screens/ProfilePageLikesViewScreen";
+//import ProfilePageCollectionsViewScreen from "./screens/ProfilePageCollectionsViewScreen"
 import ProfileHeader from "./screens/testing/ProfileHeader";
+import CollectionsKyotoScreen from "./screens/CollectionsKyotoScreen";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: ProfileHeader,
-    ProfileTest: ProfileTest, 
+    Home: HomeScreen,
     Mexico: ExploreMexicoCityScreen,
     Beaches: ExploreBeachesScreen,
     Barcelona: ExploreBarcelonaScreen,
-    Profile: ProfilePagePhotosViewScreen,
-    Collections: ProfilePageCollectionsViewScreen,
-    Likes: ProfilePageLikesViewScreen,
-    Detail: PhotoDetailPageScreen
+    Profile: ProfileHeader,
+    Detail: PhotoDetailPageScreen,
+    Kyoto: CollectionsKyotoScreen
   },
   {
     initialRouteName: "Home"

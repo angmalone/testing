@@ -14,7 +14,7 @@ class Root extends Component {
     return (
       <ScreenContainer
         hasSafeArea={false}
-        scrollable={true}
+        scrollable={false}
       >
         <ScrollView
             horizontal={false}
