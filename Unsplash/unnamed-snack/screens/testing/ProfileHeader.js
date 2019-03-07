@@ -19,6 +19,16 @@ type State = NavigationState<{
 }>;
 
 class Root extends Component {
+
+  static navigationOptions = {
+    header: null,
+    headerTintColor: 'white',
+    headerStyle: {
+      Color: 'white',
+      zIndex: 100,
+      tintColor: 'white'
+      },
+  };
   static title = 'Top tab bar with icons';
   static backgroundColor = '#e91e63';
   static appbarElevation = 0;
@@ -36,14 +46,6 @@ class Root extends Component {
     this.setState({
       index,
     });
-
-    _renderIcon = ({ route, color }) => (
-      <Ionicons name={route.icon} size={24} color={color} />
-    );
-
-  _renderIcon = ({ route, color }) => (
-    <Ionicons name={route.icon} size={24} color={color} />
-  );
 
   _renderTabBar = props => {
     return (
@@ -197,10 +199,10 @@ class Root extends Component {
 
 const styles = StyleSheet.create({
   tabbar: {
-    backgroundColor: '#e91e63',
+    backgroundColor: 'rgba(20, 21, 33, 1)',
   },
   indicator: {
-    backgroundColor: '#ffeb3b',
+    backgroundColor: 'rgba(90, 69, 255, 1)',
   },
 });
 
