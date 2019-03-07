@@ -216,6 +216,7 @@ class Root extends Component {
             >
             New
             </Text>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Jean')}>
             <Container
               style={{
                 width: 500,
@@ -238,6 +239,7 @@ class Root extends Component {
               Jean Philippe Delberg
               </Text>
             </Container>
+            </TouchableHighlight>
             <TouchableHighlight onPress={() => this.props.navigation.navigate('Detail')}>
             <Container
               style={{
@@ -261,6 +263,7 @@ class Root extends Component {
               </Text>
             </Container>
             </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Mat')}>
             <Container
               style={{
                 width: '100%',
@@ -282,6 +285,8 @@ class Root extends Component {
               Mat Reding
               </Text>
             </Container>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Brayden')}>
             <Container
               style={{
                 width: '100%',
@@ -303,6 +308,8 @@ class Root extends Component {
               Brayden Law
               </Text>
             </Container>
+            </TouchableHighlight>
+            <TouchableHighlight onPress={() => this.props.navigation.navigate('Yunming')}>
             <Container
               style={{
                 width: '100%',
@@ -324,6 +331,7 @@ class Root extends Component {
               Yunming Wang
               </Text>
             </Container>
+            </TouchableHighlight>
           </Container>
         </ScrollView>
         <FAB

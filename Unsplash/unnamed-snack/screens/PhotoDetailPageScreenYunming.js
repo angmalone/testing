@@ -1,10 +1,22 @@
-import React, { Component } from 'react';
-import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList, Share } from 'react-native';
-import { withTheme, ScreenContainer, Container, IconButton } from '@draftbit/ui';
+import React, { Component } from "react";
+import {
+  StatusBar,
+  StyleSheet,
+  View,
+  ScrollView,
+  Image,
+  Text,
+  FlatList
+} from "react-native";
+import {
+  withTheme,
+  ScreenContainer,
+  Container,
+  IconButton
+} from "@draftbit/ui";
 import Images from "../config/Images.js";
 
 class Root extends Component {
-
   onClick() {
     Share.share({
       message: 'View this photo:',
@@ -50,15 +62,15 @@ class Root extends Component {
   };
 
   render() {
-    const { theme } = this.props
+    const { theme } = this.props;
     return (
       <ScreenContainer
         hasSafeArea={true}
         scrollable={false}
         style={{
-          justifyContent: 'center',
-          alignItems: 'center',
-          alignContent: 'space-between',
+          justifyContent: "center",
+          alignItems: "center",
+          alignContent: "space-between"
         }}
       >
         <Image
@@ -67,42 +79,40 @@ class Root extends Component {
             height: 550,
             marginTop: -50
           }}
-            source={Images.ZacharyXu1410625Unsplash}
-            resizeMode="cover"
+          source={Images.YunmingWang1408276Unsplash}
+          resizeMode="cover"
         />
         <Container
           style={{
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            flexDirection: 'row',
+            justifyContent: "space-between",
+            alignItems: "center",
+            flexDirection: "row",
             marginHorizontal: 0,
             marginTop: 0,
-            top: 50,
+            top: 50
           }}
-            elevation={2}
-            useThemeGutterPadding={true}
+          elevation={2}
+          useThemeGutterPadding={true}
         >
           <Text
             style={{
-              color: theme.colors.strong, 
-                  
+              color: theme.colors.strong
             }}
           >
-          Zachary XU 
+            Yunming Wang
           </Text>
           <IconButton
             style={{
-              marginTop: 0,
+              marginTop: 0
             }}
-              icon="arrow-downward"
-              size={24}
-              color={theme.colors.strong}
+            icon="arrow-downward"
+            size={24}
+            color={theme.colors.strong}
           />
         </Container>
-        
       </ScreenContainer>
     );
   }
-};
+}
 
-export default withTheme(Root)
+export default withTheme(Root);

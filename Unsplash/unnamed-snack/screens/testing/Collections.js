@@ -11,6 +11,7 @@ class Root extends Component {
 
   render() {
     const { theme } = this.props
+
     return (
       <ScreenContainer
         hasSafeArea={false}
