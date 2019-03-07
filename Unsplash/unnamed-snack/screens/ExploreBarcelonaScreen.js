@@ -7,7 +7,6 @@ class Root extends Component {
   static navigationOptions = {
     title: 'Barcelona',
     headerStyle: {
-      backgroundColor: 'transparent',
       zIndex: 100,
       },
   };

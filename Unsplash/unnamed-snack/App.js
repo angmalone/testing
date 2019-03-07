@@ -15,10 +15,11 @@ import ProfilePagePhotosViewScreen from './screens/ProfilePagePhotosViewScreen';
 import ProfilePageLikesViewScreen from "./screens/ProfilePageLikesViewScreen";
 import ProfilePageCollectionsViewScreen from "./screens/ProfilePageCollectionsViewScreen"
 import ProfileTest from "./screens/ProfileTest";
+import ProfileHeader from "./screens/testing/ProfileHeader";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen,
+    Home: ProfileHeader,
     ProfileTest: ProfileTest, 
     Mexico: ExploreMexicoCityScreen,
     Beaches: ExploreBeachesScreen,

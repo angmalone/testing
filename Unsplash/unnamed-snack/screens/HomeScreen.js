@@ -5,6 +5,18 @@ import Images from "../config/Images.js";
 
 class Root extends Component {
 
+  static navigationOptions = {
+    header: null,
+    headerTintColor: 'white',
+    headerStyle: {
+      backgroundColor: "rgba(20, 21, 33, 1)",
+      borderBottomColor: "rgba(20, 21, 33, 1)",
+      Color: 'white',
+      zIndex: 100,
+      tintColor: 'white'
+      },
+  };
+
   componentDidMount() {
     StatusBar.setBarStyle("dark-content");
   }
