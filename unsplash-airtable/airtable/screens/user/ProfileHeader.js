@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
 import { withTheme, ScreenContainer, Container, IconButton, Icon, Button } from '@draftbit/ui';
 import {
   TabView,

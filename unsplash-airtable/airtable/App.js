@@ -11,7 +11,6 @@ import ExploreBarcelona from "./screens/explore/ExploreBarcelona";
 import ExploreBeaches from "./screens/explore/ExploreBeaches";
 import ExploreMexicoCity from "./screens/explore/ExploreMexicoCity";
 import ProfileHeader from "./screens/user/ProfileHeader";
-import CollectionsKyotoScreen from "./screens/CollectionsKyotoScreen";
 import PhotoDetails from "./screens/details/PhotoDetails"
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
