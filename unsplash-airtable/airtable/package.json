@@ -12,6 +12,7 @@
     "react-modal": "^3.8.1",
     "react-native": "https://github.com/expo/react-native/archive/sdk-31.0.0.tar.gz",
     "react-native-elements": "^1.1.0",
+    "react-native-flex-image": "^1.2.1",
     "react-native-hyperlink": "0.0.14",
     "react-native-modal": "^9.0.0",
     "react-native-tab-view": "^2.0.1",

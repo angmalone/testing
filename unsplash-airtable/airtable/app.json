@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "ios": {},
+    "name": "Unsplash",
+    "slug": "my-app",
+    "splash": {},
+    "android": {
+      "permissions": []
+    },
+    "privacy": "unlisted",
+    "sdkVersion": "31.0.0",
+    "description": "My app powered by Draftbit",
+    "notification": {}
+  }
+}

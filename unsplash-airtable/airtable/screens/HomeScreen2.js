@@ -1,10 +1,24 @@
 import React, { Component } from 'react';
-import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight } from 'react-native';
+import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight, TouchableOpacity, Dimensions } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton, FieldSearchBarFull, FAB } from '@draftbit/ui';
-
+import Modal from "react-native-modal";
+import Hyperlink from 'react-native-hyperlink'
 import Images from "../config/Images.js";
 
+
 class Root extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      photos: [],
+    };
+  }
+    state = {
+        isModalVisible: false,
+      };
+
+      _toggleModal = () =>
+        this.setState({ isModalVisible: !this.state.isModalVisible });
 
   static navigationOptions = {
     header: null,
@@ -18,12 +32,46 @@ class Root extends Component {
       },
   };
 
-  componentDidMount() {
+  componentDidMount() { 
     StatusBar.setBarStyle("dark-content");
+    fetch('https://api.airtable.com/v0/appKX1EmOPeAFm3Gn/Photos?api_key=key4cMUqaFrAHjaTn')
+    .then((resp) => resp.json())
+    .then(data => {
+       this.setState({ photos: data.records });
+    }).catch(err => {
+      console.log("oof")
+    });
   }
 
   render() {
     const { theme } = this.props
+
+    //let dimensions = Dimensions.get("window");
+    //let imageHeight = Math.round((dimensions.width * 9) / 16);
+    //let imageWidth = dimensions.width;
+
+
+    const Photo = ({ photoURL, userName, userURL, pageURL }) => (
+      <Container
+                  style={{
+                    flex: 10,
+                    
+                    marginBottom: 2,
+                  }}
+                    elevation={2}
+                    backgroundImage={photoURL}
+                    useThemeGutterPadding={true}
+                >
+                  <Text
+                    style={[
+                      theme.typography.body1, {
+                      color: theme.colors.strong, 
+                      top: 600,
+                    }]}
+                  >{userName}</Text>
+                </Container>)
+
+
     return (
       <ScreenContainer
         hasSafeArea={false}
@@ -59,8 +107,35 @@ class Root extends Component {
                   icon="account-circle"
                   size={32}
                   color={theme.colors.surface}
-                  
+                  onPress={this._toggleModal}
               />
+              <View style={{ flex: 0 }}>
+                <Modal isVisible={this.state.isModalVisible}
+                onBackdropPress={() => this.setState({ isVisible: false })}
+                style={styles.modal}>
+                    <View style={{ flex: 1 }}>
+                    <TouchableOpacity onPress={this._toggleModal}>
+                        <Text style={[
+                            theme.typography.headline5, {
+                            color: 'black', 
+                            textAlign: "center", 
+                            marginTop: 50}]}>Unsplash</Text>
+                    </TouchableOpacity>
+                    <Hyperlink linkDefault={ true }><Text style={[
+                            theme.typography.headline5, {
+                            color: 'black', 
+                            textAlign: "center", 
+                            marginTop: 20}]}>
+                            Visit unsplash.com</Text></Hyperlink>
+                    <Text style={[
+                            theme.typography.headline5, {
+                            color: 'black', 
+                            textAlign: "center", 
+                            marginTop: 20}]}>
+                            Log Out</Text>
+          </View>
+        </Modal>
+      </View>
               <IconButton
                 style={{
                   alignSelf: 'flex-start',
@@ -115,7 +190,6 @@ class Root extends Component {
               style={[
                 theme.typography.headline6, {
                 color: theme.colors.strong, 
-                    
                 borderLeftWidth: 0,
               }]}
             >
@@ -203,6 +277,7 @@ class Root extends Component {
             </Container>
             </TouchableHighlight>
           </ScrollView>
+          
           <Container
               elevation={2}
               useThemeGutterPadding={false}
@@ -333,6 +408,16 @@ class Root extends Component {
               </Text>
             </Container>
             </TouchableHighlight>
+            <Text
+              style={[
+                theme.typography.headline6, {
+                color: theme.colors.strong, 
+                borderLeftWidth: 0,
+              }]}
+            >
+            TESTING
+            </Text>
+          {this.state.photos.map(photo => <Photo {...photo.fields} /> )}
           </Container>
         </ScrollView>
         <FAB
@@ -350,4 +435,22 @@ class Root extends Component {
   }
 };
 
+
+
+const styles = StyleSheet.create({
+    modal: {
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
+        marginTop: 120,
+        width: 250,
+        height: 50,
+        backgroundColor: 'rgba(255, 255, 255, 0.8);',
+        borderRadius: 10
+    },
+});
+
+
+
 export default withTheme(Root)
+
