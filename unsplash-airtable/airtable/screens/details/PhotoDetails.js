@@ -47,11 +47,7 @@ class Root extends Component {
         />
       ),
     }}
-
- 
-
- 
-  
+    
   render() {
     const { params } = this.props.navigation.state;
     const photoURL = params ? params.photoURL : null;

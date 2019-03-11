@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton, Icon, Button, CardInline } from '@draftbit/ui';
+import { withNavigation } from 'react-navigation';
 import Images from "../../config/Images.js";
 
 class Root extends Component {
@@ -10,7 +11,8 @@ class Root extends Component {
   }
 
   render() {
-    const { theme } = this.props
+    const { theme } = this.props;
+    const { navigation } = this.props;
 
     return (
       <ScreenContainer
@@ -41,4 +43,4 @@ const styles = StyleSheet.create({
 });
 
 
-export default withTheme(Root)
+export default withNavigation(withTheme(Root))

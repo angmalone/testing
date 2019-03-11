@@ -6,9 +6,10 @@ import { AppLoading } from 'expo';
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
 import { draftbit_dark as AppTheme } from './config/Themes';
 import Home from "./screens/NewHomeScreen";
-import ExploreMexicoCityScreen from "./screens/explore/ExploreMexicoCityScreen";
-import ExploreBeachesScreen from "./screens/explore/ExploreBeachesScreen";
-import ExploreBarcelonaScreen from "./screens/explore/ExploreBarcelonaScreen";
+import CollectionsKyoto from "./screens/explore/CollectionsKyoto"
+import ExploreBarcelona from "./screens/explore/ExploreBarcelona";
+import ExploreBeaches from "./screens/explore/ExploreBeaches";
+import ExploreMexicoCity from "./screens/explore/ExploreMexicoCity";
 import ProfileHeader from "./screens/user/ProfileHeader";
 import CollectionsKyotoScreen from "./screens/CollectionsKyotoScreen";
 import PhotoDetails from "./screens/details/PhotoDetails"
@@ -17,11 +18,11 @@ import { createStackNavigator, createAppContainer } from "react-navigation";
 const AppNavigator = createStackNavigator(
   {
     Home: Home,
-    Mexico: ExploreMexicoCityScreen,
-    Beaches: ExploreBeachesScreen,
-    Barcelona: ExploreBarcelonaScreen,
+    Mexico: ExploreMexicoCity,
+    Beaches: ExploreBeaches,
+    Barcelona: ExploreBarcelona,
     Profile: ProfileHeader,
-    Kyoto: CollectionsKyotoScreen,
+    Kyoto: CollectionsKyoto,
     PhotoDetails: PhotoDetails
   },
   {
