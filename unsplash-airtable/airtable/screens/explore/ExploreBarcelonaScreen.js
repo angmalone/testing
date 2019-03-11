@@ -11,12 +11,14 @@ class Root extends Component {
       },
   };
 
-  componentDidMount() {
+  componentDidMount() { 
     StatusBar.setBarStyle("dark-content");
+  
   }
 
   render() {
     const { theme } = this.props
+    
     return (
       <ScreenContainer
         hasSafeArea={true}
@@ -25,6 +27,7 @@ class Root extends Component {
         <ScrollView
             horizontal={false}
         >
+        {this.state.photos.map(photo => <NewPhoto {...photo.fields} /> )}
           <Container
             style={{
               width: 450,

@@ -5,34 +5,24 @@ import { AppLoading } from 'expo';
 
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
 import { draftbit_dark as AppTheme } from './config/Themes';
-import PhotoDetailPageScreen from './screens/details/PhotoDetailPageScreen';
-import HomeScreen from "./screens/HomeScreen";
-import HomeScreen2 from "./screens/HomeScreen2";
+import Home from "./screens/NewHomeScreen";
 import ExploreMexicoCityScreen from "./screens/explore/ExploreMexicoCityScreen";
 import ExploreBeachesScreen from "./screens/explore/ExploreBeachesScreen";
 import ExploreBarcelonaScreen from "./screens/explore/ExploreBarcelonaScreen";
 import ProfileHeader from "./screens/user/ProfileHeader";
 import CollectionsKyotoScreen from "./screens/CollectionsKyotoScreen";
-import PhotoDetailPageScreenJean from './screens/details/PhotoDetailPageScreenJean';
-import PhotoDetailPageScreenMat from './screens/details/PhotoDetailPageScreenMat';
-import PhotoDetailPageScreenBrayden from "./screens/details/PhotoDetailPageScreenBrayden";
-import PhotoDetailPageScreenYunming from "./screens/details/PhotoDetailPageScreenYunming";
-import ListTest from "./screens/ListTest";
+import PhotoDetails from "./screens/details/PhotoDetails"
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 const AppNavigator = createStackNavigator(
   {
-    Home: HomeScreen2,
+    Home: Home,
     Mexico: ExploreMexicoCityScreen,
     Beaches: ExploreBeachesScreen,
     Barcelona: ExploreBarcelonaScreen,
     Profile: ProfileHeader,
-    Detail: PhotoDetailPageScreen,
     Kyoto: CollectionsKyotoScreen,
-    Jean: PhotoDetailPageScreenJean,
-    Mat: PhotoDetailPageScreenMat,
-    Brayden: PhotoDetailPageScreenBrayden,
-    Yunming: PhotoDetailPageScreenYunming
+    PhotoDetails: PhotoDetails
   },
   {
     initialRouteName: "Home"
