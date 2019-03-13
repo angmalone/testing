@@ -2,10 +2,17 @@ import React, { Component } from 'react';
 import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight } from 'react-native';
 import { withTheme, ScreenContainer, Container } from '@draftbit/ui';
 
-class NewPhoto extends Component {
+
+
+class PhotoComponent extends Component {
+  constructor(props) {
+    super(props);
+  }
+  
 
   render() {
     const { theme } = this.props
+    
     
     return (
         <TouchableHighlight onPress={() => this.props.navigation.navigate(`PhotoDetails`, {photoURL: photoURL, userName: userName, pageURL: pageURL})}>
@@ -32,4 +39,4 @@ class NewPhoto extends Component {
   }
 };
 
-export default NewPhoto
+export default PhotoComponent

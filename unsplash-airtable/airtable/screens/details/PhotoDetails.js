@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList, Share } from 'react-native';
+import { StatusBar, Button, StyleSheet, View, ScrollView, Image, Text, FlatList, Share, Linking } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton } from '@draftbit/ui';
 import Images from "../../config/Images.js";
+import { HyperlinkedText } from "react-native-hyperlinked-text"
 
 class Root extends Component {
       onClick() {
@@ -41,6 +42,7 @@ class Root extends Component {
         StatusBar.setBarStyle("light-content");
         this.props.navigation.setParams({ share: this._sharePhoto });
       }
+    
 
       _sharePhoto = () => {
         Share.share({
@@ -52,9 +54,9 @@ class Root extends Component {
 
   render() {
     const { params } = this.props.navigation.state;
-    const photoURL = params ? params.photoURL : null;
-    const userName = params ? params.userName : null;
-    const pageURL = params ? params.pageURL : null;
+    const photoURL = this.props.navigation.state.params.photoURL;
+    const userName = this.props.navigation.state.params.userName;
+    const pageURL = this.props.navigation.state.params.pageURL;
    
     const { theme } = this.props;
     return (
@@ -75,7 +77,7 @@ class Root extends Component {
             marginTop: -50
           }}
           source={{uri: photoURL}}
-          resizeMode="contain"
+          resizeMode="cover"
         />
         <Container
           style={{
@@ -93,8 +95,10 @@ class Root extends Component {
             style={{
               color: theme.colors.strong
             }}
+            onPress={() => {Linking.openURL(pageURL)}}
           >
-            {userName} {pageURL}
+            {userName}
+            
           </Text>
           <IconButton
             style={{

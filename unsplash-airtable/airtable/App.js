@@ -11,7 +11,7 @@ import ExploreBeaches from "./screens/explore/ExploreBeaches";
 import ExploreMexicoCity from "./screens/explore/ExploreMexicoCity";
 import ProfileHeader from "./screens/user/ProfileHeader";
 import PhotoDetails from "./screens/details/PhotoDetails"
-import RenderTest from "./screens/explore/ExploreBarcelonaTEST";
+
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 const AppNavigator = createStackNavigator(
@@ -19,7 +19,7 @@ const AppNavigator = createStackNavigator(
     Home: Home,
     Mexico: ExploreMexicoCity,
     Beaches: ExploreBeaches,
-    Barcelona: RenderTest,
+    Barcelona: ExploreBarcelona,
     Profile: ProfileHeader,
     Kyoto: CollectionsKyoto,
     PhotoDetails: PhotoDetails

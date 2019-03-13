@@ -4,7 +4,6 @@ import { withTheme, ScreenContainer, Container, IconButton, FieldSearchBarFull, 
 import Modal from "react-native-modal";
 import Hyperlink from 'react-native-hyperlink'
 import Images from "../config/Images.js";
-import NewPhoto from "../components/NewPhoto"
 
 
 class Root extends Component {
@@ -14,12 +13,6 @@ class Root extends Component {
       photos: [],
     };
   }
-    state = {
-        isModalVisible: false,
-      };
-
-      _toggleModal = () =>
-        this.setState({ isModalVisible: !this.state.isModalVisible });
 
   static navigationOptions = {
     header: null,
@@ -40,7 +33,6 @@ class Root extends Component {
     .then(data => {
        this.setState({ photos: data.records });
     }).catch(err => {
-      console.log("oof")
     });
   }
 
@@ -74,6 +66,7 @@ class Root extends Component {
       <ScreenContainer
         hasSafeArea={false}
         scrollable={false}
+        backgroundColor='white'
       >
         <ScrollView
             horizontal={false}
@@ -177,7 +170,7 @@ class Root extends Component {
             <Container
               style={{
                 width: 300,
-                height: 200,
+                height: 150,
                 justifyContent: 'center',
                 marginRight: 20,
                 
@@ -204,7 +197,7 @@ class Root extends Component {
             <Container
               style={{
                 width: 300,
-                height: 200,
+                height: 150,
                 justifyContent: 'center',
                 marginRight: 20,
               }}
@@ -228,7 +221,7 @@ class Root extends Component {
             <Container
               style={{
                 width: 300,
-                height: 200,
+                height: 150,
                 justifyContent: 'center',
                 marginRight: 20,
               }}

@@ -61,7 +61,7 @@ class Root extends Component {
         <ScrollView
             horizontal={false}
         >
-        {this.state.photos.map(photo => <NewPhoto {...photo.fields} /> )}
+        {this.state.photos.map(photo=> <NewPhoto key={index} {...photo.fields} /> )}
           
         </ScrollView>
       </ScreenContainer>
