@@ -82,31 +82,7 @@ class Root extends Component {
               elevation={2}
               backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/28af1db1-1284-44a9-8e75-4ee9da2a4624"
               useThemeGutterPadding={true}
-          >
-            <Container
-              style={{
-                alignItems: 'center',
-                flexDirection: 'row',
-                top: 25,
-              }}
-                elevation={2}
-                useThemeGutterPadding={false}
-            >
-              <IconButton
-                  icon="chevron-left"
-                  size={32}
-                  color={theme.colors.medium}
-              />
-              <Text
-                style={[
-                  theme.typography.body1, {
-                  color: theme.colors.medium, 
-                      
-                }]}
-              >
-              Back
-              </Text>
-            </Container>
+          >           
             <Image
               style={{
                 width: 100,

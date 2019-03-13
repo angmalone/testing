@@ -31,7 +31,6 @@ class Root extends Component {
   render() {
     const { theme } = this.props
     const NewPhoto = ({ photoURL, userName, pageURL }) => (
-      
       <TouchableHighlight onPress={() => this.props.navigation.navigate(`PhotoDetails`, {photoURL: photoURL, userName: userName, pageURL: pageURL})}>
       <Container
           style={{

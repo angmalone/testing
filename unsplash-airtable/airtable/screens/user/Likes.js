@@ -1,16 +1,55 @@
 import React, { Component } from 'react';
-import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList } from 'react-native';
+import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton, Icon, Button } from '@draftbit/ui';
+import { withNavigation } from 'react-navigation';
 import Images from "../../config/Images.js";
 
 class Root extends Component {
+  constructor() {
+    super();
+    this.state = {
+      photos: [],
+    };
+  }
 
   componentDidMount() {
     StatusBar.setBarStyle("light-content");
+    fetch('https://api.airtable.com/v0/appKX1EmOPeAFm3Gn/Likes?api_key=key4cMUqaFrAHjaTn')
+    .then((resp) => resp.json())
+    .then(data => {
+       this.setState({ photos: data.records });
+    }).catch(err => {
+      console.log("oof")
+    });
+    
   }
 
   render() {
     const { theme } = this.props
+    const NewPhoto = ({ photoURL, userName, pageURL }) => (
+      <TouchableHighlight onPress={() => this.props.navigation.navigate(`PhotoDetails`, {photoURL: photoURL, userName: userName, pageURL: pageURL})}>
+      <Container
+          style={{
+              flex: 10,
+              width: 450,
+              height: 650,
+              marginBottom: 2,
+            }}
+              elevation={2}
+              backgroundImage={photoURL}
+              useThemeGutterPadding={true}
+              resizeMode="contain"
+      >
+      <Text
+          style={[
+                theme.typography.body1, {
+                color: theme.colors.strong, 
+                top: 600,
+              }]}>{userName}</Text>
+        </Container>
+        </TouchableHighlight>)
+
+    
     return (
       <ScreenContainer
         hasSafeArea={false}
@@ -19,73 +58,11 @@ class Root extends Component {
         <ScrollView
             horizontal={false}
         >
-          
-          <Container
-            style={{
-              width: 450,
-              height: 650,
-              marginBottom: 2,
-            }}
-              elevation={2}
-              backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/31d897e8-db33-4e82-b076-f6d279dd34fd"
-              useThemeGutterPadding={true}
-          >
-            <Text
-              style={[
-                theme.typography.body1, {
-                color: theme.colors.mediumInverse, 
-                    
-                top: 600,
-              }]}
-            >
-            Norali Emilio
-            </Text>
-          </Container>
-          <Container
-            style={{
-              width: 450,
-              height: 300,
-              marginBottom: 2,
-            }}
-              elevation={2}
-              backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/41fe97ca-35e5-40d4-87fa-227e19827419"
-              useThemeGutterPadding={true}
-          >
-            <Text
-              style={[
-                theme.typography.body1, {
-                color: theme.colors.mediumInverse, 
-                    
-                top: 250,
-              }]}
-            >
-            Jon Tyson
-            </Text>
-          </Container>
-          <Container
-            style={{
-              width: 450,
-              height: 650,
-            }}
-              elevation={2}
-              backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/4c5121f4-0a91-4b8c-a322-c788e3ed7a1f"
-              useThemeGutterPadding={true}
-          >
-            <Text
-              style={[
-                theme.typography.body1, {
-                color: theme.colors.mediumInverse, 
-                    
-                top: 600,
-              }]}
-            >
-            Martin Adams
-            </Text>
-          </Container>
+        {this.state.photos.map(photo => <NewPhoto {...photo.fields} /> )}
         </ScrollView>
       </ScreenContainer>
     );
   }
 };
 
-export default withTheme(Root)
+export default withNavigation(withTheme(Root))

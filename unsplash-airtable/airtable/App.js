@@ -5,7 +5,7 @@ import { AppLoading } from 'expo';
 
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
 import { draftbit_dark as AppTheme } from './config/Themes';
-import Home from "./screens/NewHomeScreen";
+import Home from "./screens/HomeScreen";
 import CollectionsKyoto from "./screens/explore/CollectionsKyoto"
 import ExploreBarcelona from "./screens/explore/ExploreBarcelona";
 import ExploreBeaches from "./screens/explore/ExploreBeaches";

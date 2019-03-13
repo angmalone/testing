@@ -1,10 +1,25 @@
 import React, { Component } from 'react';
-import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight } from 'react-native';
+import { StatusBar, StyleSheet, View, ScrollView, Image, Text, FlatList, TouchableHighlight, TouchableOpacity } from 'react-native';
 import { withTheme, ScreenContainer, Container, IconButton, FieldSearchBarFull, FAB } from '@draftbit/ui';
-
+import Modal from "react-native-modal";
+import Hyperlink from 'react-native-hyperlink'
 import Images from "../config/Images.js";
+import NewPhoto from "../components/NewPhoto"
+
 
 class Root extends Component {
+  constructor() {
+    super();
+    this.state = {
+      photos: [],
+    };
+  }
+    state = {
+        isModalVisible: false,
+      };
+
+      _toggleModal = () =>
+        this.setState({ isModalVisible: !this.state.isModalVisible });
 
   static navigationOptions = {
     header: null,
@@ -18,12 +33,43 @@ class Root extends Component {
       },
   };
 
-  componentDidMount() {
+  componentDidMount() { 
     StatusBar.setBarStyle("dark-content");
+    fetch('https://api.airtable.com/v0/appKX1EmOPeAFm3Gn/Photos?api_key=key4cMUqaFrAHjaTn')
+    .then((resp) => resp.json())
+    .then(data => {
+       this.setState({ photos: data.records });
+    }).catch(err => {
+      console.log("oof")
+    });
   }
 
   render() {
     const { theme } = this.props
+    const NewPhoto = ({ photoURL, userName, pageURL }) => (
+      
+      <TouchableHighlight onPress={() => this.props.navigation.navigate(`PhotoDetails`, {photoURL: photoURL, userName: userName, pageURL: pageURL})}>
+      <Container
+          style={{
+              flex: 10,
+              width: 450,
+              height: 650,
+              marginBottom: 2,
+            }}
+              elevation={2}
+              backgroundImage={photoURL}
+              useThemeGutterPadding={true}
+      >
+      <Text
+          style={[
+                theme.typography.body1, {
+                color: theme.colors.strong, 
+                top: 600,
+              }]}>{userName}</Text>
+        </Container>
+        </TouchableHighlight>)
+
+
     return (
       <ScreenContainer
         hasSafeArea={false}
@@ -59,8 +105,9 @@ class Root extends Component {
                   icon="account-circle"
                   size={32}
                   color={theme.colors.surface}
-                  
+                  onPress={this._toggleModal}
               />
+              
               <IconButton
                 style={{
                   alignSelf: 'flex-start',
@@ -115,7 +162,6 @@ class Root extends Component {
               style={[
                 theme.typography.headline6, {
                 color: theme.colors.strong, 
-                    
                 borderLeftWidth: 0,
               }]}
             >
@@ -203,6 +249,7 @@ class Root extends Component {
             </Container>
             </TouchableHighlight>
           </ScrollView>
+          
           <Container
               elevation={2}
               useThemeGutterPadding={false}
@@ -217,122 +264,7 @@ class Root extends Component {
             >
             New
             </Text>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('Jean')}>
-            <Container
-              style={{
-                width: 500,
-                height: 750,
-                marginBottom: 2,
-              }}
-                elevation={2}
-                backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/c274b27c-0eea-4a04-8538-759523115376"
-                useThemeGutterPadding={true}
-            >
-              <Text
-                style={[
-                  theme.typography.body1, {
-                  color: theme.colors.strong, 
-                      
-                  marginLeft: 0,
-                  top: 700,
-                }]}
-              >
-              Jean Philippe Delberg
-              </Text>
-            </Container>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('Detail')}>
-            <Container
-              style={{
-                width: '100%',
-                height: 650,
-                marginBottom: 2,
-              }}
-                elevation={2}
-                backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/b0025916-5dd2-4007-bb7f-6fa292392954"
-                useThemeGutterPadding={true}
-            >
-              <Text
-                style={[
-                  theme.typography.body1, {
-                  color: theme.colors.strong, 
-                      
-                  top: 600,
-                }]}
-              >
-              Zachary Xu 
-              </Text>
-            </Container>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('Mat')}>
-            <Container
-              style={{
-                width: '100%',
-                height: 650,
-                marginBottom: 2,
-              }}
-                elevation={2}
-                backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/1477d543-1981-421d-8ab8-8ad69d5f2a4c"
-                useThemeGutterPadding={true}
-            >
-              <Text
-                style={[
-                  theme.typography.body1, {
-                  color: theme.colors.strong, 
-                      
-                  top: 600,
-                }]}
-              >
-              Mat Reding
-              </Text>
-            </Container>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('Brayden')}>
-            <Container
-              style={{
-                width: '100%',
-                height: 650,
-                marginBottom: 2,
-              }}
-                elevation={2}
-                backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/8ec98308-bbc6-4934-8324-3eeb74f62580"
-                useThemeGutterPadding={true}
-            >
-              <Text
-                style={[
-                  theme.typography.body1, {
-                  color: theme.colors.strong, 
-                      
-                  top: 600,
-                }]}
-              >
-              Brayden Law
-              </Text>
-            </Container>
-            </TouchableHighlight>
-            <TouchableHighlight onPress={() => this.props.navigation.navigate('Yunming')}>
-            <Container
-              style={{
-                width: '100%',
-                height: 650,
-                marginBottom: 2,
-              }}
-                elevation={2}
-                backgroundImage="https://apps-draftbit-com.s3.amazonaws.com/r9_CZrFM/assets/84e99a6b-4618-43c6-ba81-577c0f2373b4"
-                useThemeGutterPadding={true}
-            >
-              <Text
-                style={[
-                  theme.typography.body1, {
-                  color: theme.colors.strong, 
-                      
-                  top: 600,
-                }]}
-              >
-              Yunming Wang
-              </Text>
-            </Container>
-            </TouchableHighlight>
+          {this.state.photos.map(photo => <NewPhoto {...photo.fields} /> )}
           </Container>
         </ScrollView>
         <FAB
@@ -350,4 +282,20 @@ class Root extends Component {
   }
 };
 
+const styles = StyleSheet.create({
+    modal: {
+        justifyContent: 'center',
+        alignContent: 'center',
+        alignItems: 'center',
+        marginTop: 120,
+        width: 250,
+        height: 50,
+        backgroundColor: 'rgba(255, 255, 255, 0.8);',
+        borderRadius: 10
+    },
+});
+
+
+
 export default withTheme(Root)
+

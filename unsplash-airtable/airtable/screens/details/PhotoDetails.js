@@ -71,7 +71,7 @@ class Root extends Component {
             marginTop: -50
           }}
           source={{uri: photoURL}}
-          resizeMode="cover"
+          resizeMode="contain"
         />
         <Container
           style={{
@@ -90,7 +90,7 @@ class Root extends Component {
               color: theme.colors.strong
             }}
           >
-            {userName}
+            {userName} 
           </Text>
           <IconButton
             style={{
