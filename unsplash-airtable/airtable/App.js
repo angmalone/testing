@@ -2,7 +2,6 @@
 import * as React from 'react';
 import { DefaultTheme, Provider } from '@draftbit/ui';
 import { AppLoading } from 'expo';
-
 import cacheAssetsAsync from './utilities/cacheAssetsAsync';
 import { draftbit_dark as AppTheme } from './config/Themes';
 import Home from "./screens/HomeScreen";
@@ -12,6 +11,7 @@ import ExploreBeaches from "./screens/explore/ExploreBeaches";
 import ExploreMexicoCity from "./screens/explore/ExploreMexicoCity";
 import ProfileHeader from "./screens/user/ProfileHeader";
 import PhotoDetails from "./screens/details/PhotoDetails"
+import RenderTest from "./screens/explore/ExploreBarcelonaTEST";
 import { createStackNavigator, createAppContainer } from "react-navigation";
 
 const AppNavigator = createStackNavigator(
@@ -19,7 +19,7 @@ const AppNavigator = createStackNavigator(
     Home: Home,
     Mexico: ExploreMexicoCity,
     Beaches: ExploreBeaches,
-    Barcelona: ExploreBarcelona,
+    Barcelona: RenderTest,
     Profile: ProfileHeader,
     Kyoto: CollectionsKyoto,
     PhotoDetails: PhotoDetails

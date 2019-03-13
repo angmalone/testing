@@ -3,8 +3,8 @@
   "expoServerPort": null,
   "packagerPort": null,
   "packagerPid": null,
-  "expoServerNgrokUrl": null,
-  "packagerNgrokUrl": null,
-  "ngrokPid": null,
+  "expoServerNgrokUrl": "https://jq-8ub.anonymous.airtable.exp.direct",
+  "packagerNgrokUrl": "https://packager.jq-8ub.anonymous.airtable.exp.direct",
+  "ngrokPid": 36176,
   "webpackServerPort": null
 }
